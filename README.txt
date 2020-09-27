@@ -24,12 +24,42 @@ I. Tools Used:
     - MongoDB atlas (cloud database, no need to install)
         +, Just need to login, see login in password app
         +, Setting up MongoDB: Video 178
-
+    
+    - npm install --save mongodb
 
 II. Core Concepts: 
+    1. What is MongoDB: 
+        - NoSQL database
+        - Store data in JSON data format, 
+            Very similar to a javascript object
+        - MongoDB consists of: Collections and Documents
 
+    2. Relation in NoSQL: 
+        - Duplicate data of different documents of different Collections
+        - See this image to understand: 
+            https://drive.google.com/file/d/1KGGRvG-4OYQG4F2mWKH17cxPTD-s4WKN/view?usp=sharing
+
+        - There are actually 2 options for Relations in NoSQL: 
+            +, Nested / Embedded Documents: Duplicate and Embed needed data into existing documents 
+            +, References: refer to the needed data into existing document
+            +, See this image for demonstration: 
+            https://drive.google.com/file/d/1FvAAuPhCR-zgg4_M0XL8GIv6hCaO_GWp/view?usp=sharing
+
+    3. NoSQL Characteristics: 
+        - No Data Schema > No required structure
+        - Fewer Data Relations: you can relate documents
+            (by referencing) but you don't have to 
+		- You shouldn't Relate data too much or your queries
+            become slow
     
 III. Module Notes: 
+    1. Setting up connection with MongoDB: 
+        - Code in 2nd Commit
+        - See ./util/database.js for how to setup connection
+        - See app.js for how to establish a connection
                 
                 
 IV. Other Notes: 
+    What is in this module: 
+        - What is MongoDB
+        - Using MongoDB driver in Node.js App
