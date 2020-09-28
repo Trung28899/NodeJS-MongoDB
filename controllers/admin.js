@@ -13,21 +13,10 @@ exports.postAddProduct = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
-  /*
-    This is Sequelize associate function
-    This allow us to add record to product 
-    database with correct user (userId)
+  const product = new Product(title, price, description, imageUrl);
 
-    req.user is passed in a model in app.js
-  */
-  req.user
-    .createProduct({
-      title: title,
-      price: price,
-      imageUrl: imageUrl,
-      description: description,
-      userId: req.user.id,
-    })
+  product
+    .save()
     .then((result) => {
       console.log("Created Product");
       // console.log(result);
@@ -39,39 +28,39 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 // Handling Edit-Product
-exports.getEditProduct = (req, res, next) => {
-  const editMode = req.query.edit;
+// exports.getEditProduct = (req, res, next) => {
+//   const editMode = req.query.edit;
 
-  if (!editMode) {
-    return res.redirect("/");
-  }
+//   if (!editMode) {
+//     return res.redirect("/");
+//   }
 
-  const prodId = req.params.productId;
-  /*
-    Getting edit details of all the products of a user
-    (passed in request in app.js)
-    with a corresponding product ID > get a single product
+//   const prodId = req.params.productId;
+//   /*
+//     Getting edit details of all the products of a user
+//     (passed in request in app.js)
+//     with a corresponding product ID > get a single product
 
-    This use Sequelize Association
-  */
-  req.user
-    .getProducts({ where: { id: prodId } })
-    .then((products) => {
-      const product = products[0];
-      if (!product) {
-        return res.redirect("/");
-      }
-      res.render("admin/edit-product", {
-        pageTitle: "Edit Product",
-        path: "/admin/edit-product",
-        editing: editMode,
-        product: product,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+//     This use Sequelize Association
+//   */
+//   req.user
+//     .getProducts({ where: { id: prodId } })
+//     .then((products) => {
+//       const product = products[0];
+//       if (!product) {
+//         return res.redirect("/");
+//       }
+//       res.render("admin/edit-product", {
+//         pageTitle: "Edit Product",
+//         path: "/admin/edit-product",
+//         editing: editMode,
+//         product: product,
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
 
 /*
   Action for editing product

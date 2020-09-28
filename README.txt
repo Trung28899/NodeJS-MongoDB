@@ -53,10 +53,22 @@ II. Core Concepts:
             become slow
     
 III. Module Notes: 
+
     1. Setting up connection with MongoDB: 
         - Code in 2nd Commit
         - See ./util/database.js for how to setup connection
         - See app.js for how to establish a connection
+    
+    2. Using Database connection and Creating Products: 
+        - Code in 3rd Commit
+        - See app.js for how to establish a connection
+        - See ./util/database.js for how to setup connection
+        - See ./models/produc.js for how to save data in the database
+        - See ./controllers/admin.js for how to add data with 
+            /admin/add-product page
+
+            => http://localhost:3000/admin/add-product
+            now functioning
                 
                 
 IV. Other Notes: 
