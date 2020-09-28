@@ -84,6 +84,16 @@ III. Module Notes:
                 how to fetch All products from DB
             - ./controllers/shop.js under getProducts() and 
                 getIndex() to see how to execute Fetching
+        
+        b. Fetching a single product (by id): 
+            - Code in 5th Commit
+            - ./models/products.js: findById() to fetch any
+                single product with id correctly
+            - ./controllers/product.js: getProduct() to use
+                findById() and render
+
+            now we can go to '/products/ and hit 'Details' 
+            > it should work
                 
                 
 IV. Other Notes: 

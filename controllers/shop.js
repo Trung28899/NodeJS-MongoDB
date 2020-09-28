@@ -19,22 +19,26 @@ exports.getProducts = (req, res, next) => {
     });
 };
 
-// click Products > '/products/productId'
+// click 'Detail' button in '/Products' > '/products/productId'
 exports.getProduct = (req, res, next) => {
   const prodID = req.params.productId;
-  Product.findAll({ where: { id: prodID } })
+  // Product.findAll({ where: { id: prodID } })
+  //   .then((product) => {
+  //     res.render("shop/product-detail", {
+  //       product: product[0],
+  //       pageTitle: product[0].title,
+  //       path: "/products",
+  //     });
+  //   })
+  //   .catch((err) => console.log(err));
+
+  Product.findById(prodID)
     .then((product) => {
       res.render("shop/product-detail", {
-        product: product[0],
-        pageTitle: product[0].title,
+        product: product,
+        pageTitle: product.title,
         path: "/products",
       });
-    })
-    .catch((err) => console.log(err));
-
-  Product.findByPk(prodID)
-    .then((product) => {
-      // console.log(product);
     })
     .catch((err) => console.log(err));
 };

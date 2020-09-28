@@ -10,7 +10,7 @@ router.get("/", shopController.getIndex);
 
 router.get("/products", shopController.getProducts);
 
-// router.get("/products/:productId", shopController.getProduct);
+router.get("/products/:productId", shopController.getProduct);
 
 // // Adding post request handling for '/cart'
 // router.post("/cart", shopController.postCard);
