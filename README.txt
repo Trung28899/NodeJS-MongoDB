@@ -27,6 +27,13 @@ I. Tools Used:
     
     - npm install --save mongodb
 
+    - MongoDB Compass: GUI for MongoDb data
+        +, help us to explore and manipulate our
+        cloud MongoDB atlas
+    https://www.mongodb.com/products/compass
+    > install to machine to use
+    > use at set up guide at video 184
+
 II. Core Concepts: 
     1. What is MongoDB: 
         - NoSQL database
@@ -69,6 +76,14 @@ III. Module Notes:
 
             => http://localhost:3000/admin/add-product
             now functioning
+
+    3. Fetching Products
+        a. Fetching all products: 
+            - Code in 4th Commit
+            - ./models/product.js: under fetchAll() to see 
+                how to fetch All products from DB
+            - ./controllers/shop.js under getProducts() and 
+                getIndex() to see how to execute Fetching
                 
                 
 IV. Other Notes: 

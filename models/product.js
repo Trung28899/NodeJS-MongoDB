@@ -25,6 +25,26 @@ class Product {
         console.log(err);
       });
   }
+
+  static fetchAll() {
+    /*
+      find() will find all documents in the collection
+      find() return a so-called 'cursor', not a promise
+
+      here we turn it into array which we can work  with as
+      a promise
+    */
+    const db = getDb();
+    return db
+      .collection("products")
+      .find()
+      .toArray()
+      .then((products) => {
+        console.log(products);
+        return products;
+      })
+      .catch((err) => console.log(err));
+  }
 }
 
 module.exports = Product;
