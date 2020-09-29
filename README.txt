@@ -109,7 +109,7 @@ III. Module Notes:
                 under postEditProduct()
         
         b. Deleting Products: 
-            - Code in 7th Commit
+            - Code in 8th Commit
             - MongoDB delete operation in ./models/products under deleteById()
             - Excute delete operation and re-direct in ./controllers/admin.js 
                 under postDeleteProduct(). Now you can CRUD any admin products
