@@ -70,7 +70,7 @@ III. Module Notes:
         - Code in 3rd Commit
         - See app.js for how to establish a connection
         - See ./util/database.js for how to setup connection
-        - See ./models/produc.js for how to save data in the database
+        - See ./models/product.js for how to save data in the database
         - See ./controllers/admin.js for how to add data with 
             /admin/add-product page
 
@@ -100,13 +100,19 @@ III. Module Notes:
         - Now we work with Update and Delete
 
         a. Updating Products: 
-            - Code in 6th Commit
+            - Code in 7th Commit
             - Fetch data for '/admin/products' in ./controllers/admin.js
                 under getEditProduct()
             - Update Operations with database: ./models/product.js under
                 save()
             - Update products and rendering: ./controllers/admin.js 
                 under postEditProduct()
+        
+        b. Deleting Products: 
+            - Code in 7th Commit
+            - MongoDB delete operation in ./models/products under deleteById()
+            - Excute delete operation and re-direct in ./controllers/admin.js 
+                under postDeleteProduct(). Now you can CRUD any admin products
                 
                 
 IV. Other Notes: 
