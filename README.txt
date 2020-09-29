@@ -120,7 +120,12 @@ III. Module Notes:
             +, user created manually in mongo compass
             +, See ./models/user.js to see the user class and methods
             +, See app.js for how to find an user by id and insert
-                user reference into the request           
+                user reference into the request   
+        - Storing a product with user id stored: 
+            +, Code in 10th Commit
+            +, See ./models/product.js and ./controllers/admin.js   
+            +, See 'products' collections, the field userId store the user id
+                by accessing request data     
                 
 IV. Other Notes: 
     What is in this module: 
