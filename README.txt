@@ -134,7 +134,17 @@ III. Module Notes:
                 operation
             +, See ./controllers/shop.js: under postCard() for handling adding
                 to cart action
-                
+        
+        - Storing multiple Items into Cart: 
+            +, Code in 12nd Commit
+            +, See in ./models/user.js: under addToCart() to see how to 
+                store multiple Items
+
+        - Rendering '/cart' page: 
+            +, Code in 13rd Commit
+            +, See in ./models/user.js: under getCart() for getting all 
+                products in cart with correct data format
+
 IV. Other Notes: 
     What is in this module: 
         - What is MongoDB

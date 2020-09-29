@@ -16,14 +16,10 @@ class Product {
     let dbOp;
 
     if (this._id) {
-      /*
-        if product has id already > update the product
-      */
       dbOp = db
         .collection("products")
         .updateOne({ _id: this._id }, { $set: this });
     } else {
-      // else > insert the new product
       dbOp = db.collection("products").insertOne(this);
     }
 
@@ -51,10 +47,6 @@ class Product {
 
   static findById(prodId) {
     const db = getDb();
-    /*
-      we have to use new mongodb.ObjectId(prodId)
-      because mongoDb store id in an unique way
-    */
     return db
       .collection("products")
       .find({ _id: new mongodb.ObjectId(prodId) })
