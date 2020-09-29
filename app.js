@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 
 const errorController = require("./controllers/error");
 const mongoConnect = require("./util/database").mongoConnect;
+const User = require("./models/user");
 
 const app = express();
 
@@ -15,12 +16,16 @@ const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 
 app.use((req, res, next) => {
-  // User.findByPk(1)
-  //   .then((user) => {
-  //     req.user = user;
-  //     next();
-  //   })
-  //   .catch((err) => console.log(err));
+  /*
+    Find user by a specified id then store that user
+    reference into the request
+  */
+  User.findById("5f73689740941e044a38dfab")
+    .then((user) => {
+      req.user = user;
+      next();
+    })
+    .catch((err) => console.log(err));
   next();
 });
 

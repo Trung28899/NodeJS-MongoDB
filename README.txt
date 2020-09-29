@@ -113,7 +113,14 @@ III. Module Notes:
             - MongoDB delete operation in ./models/products under deleteById()
             - Excute delete operation and re-direct in ./controllers/admin.js 
                 under postDeleteProduct(). Now you can CRUD any admin products
-                
+
+    5. Other operations:
+        - Creating an user: 
+            +, code in 9th Commit
+            +, user created manually in mongo compass
+            +, See ./models/user.js to see the user class and methods
+            +, See app.js for how to find an user by id and insert
+                user reference into the request           
                 
 IV. Other Notes: 
     What is in this module: 
