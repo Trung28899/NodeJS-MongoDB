@@ -2,23 +2,31 @@ const mongodb = require("mongodb");
 const getDb = require("../util/database").getDb;
 
 class Product {
-  constructor(title, price, description, imageUrl) {
+  constructor(title, price, description, imageUrl, id) {
     this.title = title;
     this.price = price;
     this.description = description;
     this.imageUrl = imageUrl;
+    this._id = new mongodb.ObjectId(id);
   }
 
   save() {
     const db = getDb();
-    /*
-      Getting the collection 'products'
-      to work with. If there is no such collection
-      MongoDB will create one to work with
-    */
-    return db
-      .collection("products")
-      .insertOne(this)
+    let dbOp;
+
+    if (this._id) {
+      /*
+        if product has id already > update the product
+      */
+      dbOp = db
+        .collection("products")
+        .updateOne({ _id: this._id }, { $set: this });
+    } else {
+      // else > insert the new product
+      dbOp = db.collection("products").insertOne(this);
+    }
+
+    return dbOp
       .then((result) => {
         console.log(result);
       })
@@ -28,13 +36,6 @@ class Product {
   }
 
   static fetchAll() {
-    /*
-      find() will find all documents in the collection
-      find() return a so-called 'cursor', not a promise
-
-      here we turn it into array which we can work  with as
-      a promise
-    */
     const db = getDb();
     return db
       .collection("products")

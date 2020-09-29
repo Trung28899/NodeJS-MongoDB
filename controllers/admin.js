@@ -27,43 +27,37 @@ exports.postAddProduct = (req, res, next) => {
     });
 };
 
-// Handling Edit-Product
-// exports.getEditProduct = (req, res, next) => {
-//   const editMode = req.query.edit;
+// Handling Edit-Product for GET requests
+exports.getEditProduct = (req, res, next) => {
+  const editMode = req.query.edit;
 
-//   if (!editMode) {
-//     return res.redirect("/");
-//   }
+  if (!editMode) {
+    return res.redirect("/");
+  }
 
-//   const prodId = req.params.productId;
-//   /*
-//     Getting edit details of all the products of a user
-//     (passed in request in app.js)
-//     with a corresponding product ID > get a single product
-
-//     This use Sequelize Association
-//   */
-//   req.user
-//     .getProducts({ where: { id: prodId } })
-//     .then((products) => {
-//       const product = products[0];
-//       if (!product) {
-//         return res.redirect("/");
-//       }
-//       res.render("admin/edit-product", {
-//         pageTitle: "Edit Product",
-//         path: "/admin/edit-product",
-//         editing: editMode,
-//         product: product,
-//       });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+  const prodId = req.params.productId;
+  /*
+    Fetching and Rendering Data
+  */
+  Product.findById(prodId)
+    .then((product) => {
+      if (!product) {
+        return res.redirect("/");
+      }
+      res.render("admin/edit-product", {
+        pageTitle: "Edit Product",
+        path: "/admin/edit-product",
+        editing: editMode,
+        product: product,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 /*
-  Action for editing product
+  Updating Products
 */
 exports.postEditProduct = (req, res, next) => {
   // Get it from the hidden input in edit-product.ejs
@@ -74,15 +68,16 @@ exports.postEditProduct = (req, res, next) => {
   const updatedImageUrl = req.body.imageUrl;
   const updatedDesc = req.body.description;
 
-  Product.findByPk(prodId)
-    .then((product) => {
-      product.title = updatedTitle;
-      product.price = updatedPrice;
-      product.imageUrl = updatedImageUrl;
-      product.description = updatedDesc;
+  const product = new Product(
+    updatedTitle,
+    updatedPrice,
+    updatedDesc,
+    updatedImageUrl,
+    prodId
+  );
 
-      return product.save();
-    })
+  product
+    .save()
     .then((result) => {
       console.log("Updated Product");
       res.redirect("/admin/products");
@@ -99,8 +94,7 @@ exports.getProducts = (req, res, next) => {
     with corresponding user (using sequelize 
       association functions)
   */
-  req.user
-    .getProducts()
+  Product.fetchAll()
     .then((products) => {
       res.render("admin/products", {
         prods: products,

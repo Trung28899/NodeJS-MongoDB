@@ -94,6 +94,19 @@ III. Module Notes:
 
             now we can go to '/products/ and hit 'Details' 
             > it should work
+
+    4. Finishing CRUD operations: 
+        - Create and Read was in part 3
+        - Now we work with Update and Delete
+
+        a. Updating Products: 
+            - Code in 6th Commit
+            - Fetch data for '/admin/products' in ./controllers/admin.js
+                under getEditProduct()
+            - Update Operations with database: ./models/product.js under
+                save()
+            - Update products and rendering: ./controllers/admin.js 
+                under postEditProduct()
                 
                 
 IV. Other Notes: 
