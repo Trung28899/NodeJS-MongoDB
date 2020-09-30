@@ -151,6 +151,15 @@ III. Module Notes:
                 database operations
             +, see in ./controllers/shop.js: under postCartDeleteProduct()
                 for execution
+        
+        - Adding and Getting Orders: 
+            +, Code in 15th Commit
+            +, Adding Orders: 
+                > ./models/user.js: under addOrder() for operation
+                > ./controllers/shop.js: postOrder() for execution
+            +, Get Orders: 
+                > ./models/user.js: under getOrders() for operation
+                > ./controllers/shop.js: getOrders() for execution
 
 IV. Other Notes: 
     What is in this module: 
