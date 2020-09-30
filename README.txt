@@ -145,6 +145,13 @@ III. Module Notes:
             +, See in ./models/user.js: under getCart() for getting all 
                 products in cart with correct data format
 
+        - Deleting products in '/cart': Self coded 
+            +, Code in 14th Commit
+            +, See in ./models/user.js: under deleteById() to see
+                database operations
+            +, see in ./controllers/shop.js: under postCartDeleteProduct()
+                for execution
+
 IV. Other Notes: 
     What is in this module: 
         - What is MongoDB

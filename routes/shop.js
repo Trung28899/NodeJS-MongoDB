@@ -15,7 +15,7 @@ router.get("/products/:productId", shopController.getProduct);
 // Adding post request handling for '/cart'
 router.post("/cart", shopController.postCard);
 
-// router.post("/cart-delete-item", shopController.postCartDeleteProduct);
+router.post("/cart-delete-item", shopController.postCartDeleteProduct);
 
 router.get("/cart", shopController.getCart);
 

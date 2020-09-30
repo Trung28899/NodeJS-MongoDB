@@ -1,7 +1,3 @@
-/*
-  THIS CONTROLLER WILL BE IMPORTED IN ./routes/ file
-*/
-
 const Product = require("../models/product");
 
 // click Products > '/products'
@@ -22,15 +18,6 @@ exports.getProducts = (req, res, next) => {
 // click 'Detail' button in '/Products' > '/products/productId'
 exports.getProduct = (req, res, next) => {
   const prodID = req.params.productId;
-  // Product.findAll({ where: { id: prodID } })
-  //   .then((product) => {
-  //     res.render("shop/product-detail", {
-  //       product: product[0],
-  //       pageTitle: product[0].title,
-  //       path: "/products",
-  //     });
-  //   })
-  //   .catch((err) => console.log(err));
 
   Product.findById(prodID)
     .then((product) => {
@@ -63,7 +50,7 @@ exports.getCart = (req, res, next) => {
   req.user
     .getCart()
     .then((products) => {
-      console.log(products);
+      // console.log(products);
       res.render("shop/cart", {
         path: "/cart",
         pageTitle: "Your Cart",
@@ -81,7 +68,8 @@ exports.postCard = (req, res, next) => {
       return req.user.addToCart(product);
     })
     .then((result) => {
-      console.log(result);
+      // console.log(result);
+      res.redirect("/cart");
     })
     .catch((err) => console.log(err));
 };
@@ -89,15 +77,7 @@ exports.postCard = (req, res, next) => {
 exports.postCartDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
   req.user
-    .getCart()
-    .then((cart) => {
-      return cart.getProducts({ where: { id: prodId } });
-    })
-    .then((products) => {
-      const product = products[0];
-      // deleting this item in the cartItem table
-      return product.cartItem.destroy();
-    })
+    .deleteById(prodId)
     .then((result) => {
       res.redirect("/cart");
     })
@@ -126,10 +106,6 @@ exports.postOrder = (req, res, next) => {
         .catch((err) => console.log(err));
     })
     .then((result) => {
-      /*
-        This will clear the cart when the order button
-        is clicked
-      */
       return fetchedCart.setProducts(null);
     })
     .then((result) => {
@@ -140,13 +116,6 @@ exports.postOrder = (req, res, next) => {
 
 // click Orders > "/orders"
 exports.getOrders = (req, res, next) => {
-  /*
-    include: ['products] allow us to load the 
-    products in the order
-
-    help us to work in orders.ejs by accessing
-    order.products.forEach
-  */
   req.user
     .getOrders({ include: ["products"] })
     .then((orders) => {
