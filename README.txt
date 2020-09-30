@@ -141,7 +141,7 @@ III. Module Notes:
                 store multiple Items
 
         - Rendering '/cart' page: 
-            +, Code in 13rd Commit
+            +, Code in 13rd Commit - rendering cart
             +, See in ./models/user.js: under getCart() for getting all 
                 products in cart with correct data format
 
