@@ -162,6 +162,21 @@ III. Module Notes:
                 > ./controllers/shop.js: getOrders() for execution
 
 IV. Other Notes: 
-    What is in this module: 
+    1. What is in this module: 
         - What is MongoDB
         - Using MongoDB driver in Node.js App
+
+    2. Module Summary: 
+        See image in this link: 
+        https://drive.google.com/file/d/1Zmb-Vze3z2ClLyJOJgDMVgXqUxrKZ1JI/view?usp=sharing
+
+    3. MongoDB documentations: 
+        - Official Docs: 
+            https://docs.mongodb.com/manual/
+
+        - SQL vs NosQL: 
+            https://academind.com/learn/web-dev/sql-vs-nosql/
+
+        - More about mongoDB: 
+            https://academind.com/learn/mongodb/
+        
