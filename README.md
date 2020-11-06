@@ -1,4 +1,4 @@
-I. Tools Used: 
+## I. Tools Used: 
 
     - $ npm install 
     - $ npm install --save express
@@ -34,7 +34,7 @@ I. Tools Used:
     > install to machine to use
     > use at set up guide at video 184
 
-II. Core Concepts: 
+## II. Core Concepts: 
     1. What is MongoDB: 
         - NoSQL database
         - Store data in JSON data format, 
@@ -59,7 +59,7 @@ II. Core Concepts:
 		- You shouldn't Relate data too much or your queries
             become slow
     
-III. Module Notes: 
+## III. Module Notes: 
 
     1. Setting up connection with MongoDB: 
         - Code in 2nd Commit
@@ -161,7 +161,7 @@ III. Module Notes:
                 > ./models/user.js: under getOrders() for operation
                 > ./controllers/shop.js: getOrders() for execution
 
-IV. Other Notes: 
+## IV. Other Notes: 
     1. What is in this module: 
         - What is MongoDB
         - Using MongoDB driver in Node.js App
